@@ -53,9 +53,22 @@ a:hover {
   font-size: 1.2rem;
 }
 
+.top-name-wrap {
+  display: table;
+}
+
+.top-name-wrap .top-name {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
 .top-name {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.top-name-text {
   color: #333;
   text-shadow: none;
   font-family: NanumMyeongjo-b;
