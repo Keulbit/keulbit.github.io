@@ -88,6 +88,9 @@
             modalImage.src = imageElement.src;
             captionText.innerHTML = imageElement.alt;
 
+            // modalImage.addEventListener('mousedown', handleDragStart, false);
+            // modalImage.addEventListener('mouseup', handleDragEnd, false);
+
             modalImage.addEventListener("touchstart", handleTouchStart, false);
             modalImage.addEventListener("touchend", handleTouchEnd, false);
         }
@@ -115,6 +118,21 @@
 
         function handleTouchEnd(event) {
             const diffX = event.changedTouches[0].clientX - startX;
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    changeImage(-1);
+                } else {
+                    changeImage(1);
+                }
+            }
+        }
+
+        function handleDragStart(event) {
+            startX = event.clientX;
+        }
+
+        function handleDragEnd(event) {
+            const diffX = event.clientX - startX;
             if (Math.abs(diffX) > 50) {
                 if (diffX > 0) {
                     changeImage(-1);
@@ -277,13 +295,6 @@
                         <img src="img/test/41.jpg" alt="이미지41" onclick="showImageModal(this)">
                         <img src="img/test/42.jpg" alt="이미지42" onclick="showImageModal(this)">
                         <img src="img/test/43.jpg" alt="이미지43" onclick="showImageModal(this)">
-                        <img src="img/test/44.jpg" alt="이미지44" onclick="showImageModal(this)">
-                        <img src="img/test/45.jpg" alt="이미지45" onclick="showImageModal(this)">
-                        <img src="img/test/46.jpg" alt="이미지46" onclick="showImageModal(this)">
-                        <img src="img/test/47.jpg" alt="이미지47" onclick="showImageModal(this)">
-                        <img src="img/test/48.jpg" alt="이미지48" onclick="showImageModal(this)">
-                        <img src="img/test/49.jpg" alt="이미지49" onclick="showImageModal(this)">
-                        <img src="img/test/50.jpg" alt="이미지50" onclick="showImageModal(this)">
                         <img src="img/test/51.jpg" alt="이미지51" onclick="showImageModal(this)">
                         <img src="img/test/52.jpg" alt="이미지52" onclick="showImageModal(this)">
                         <img src="img/test/53.jpg" alt="이미지53" onclick="showImageModal(this)">
