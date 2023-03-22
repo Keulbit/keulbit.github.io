@@ -75,6 +75,7 @@
         function closeModal() {
             document.getElementById("image-modal").style.display = "none";
         }
+        // let scale = 1;
 
         function showImageModal(imageElement) {
             const modal = document.getElementById("image-modal");
@@ -93,6 +94,14 @@
 
             modalImage.addEventListener("touchstart", handleTouchStart, false);
             modalImage.addEventListener("touchend", handleTouchEnd, false);
+            // modalImage.addEventListener("wheel", handleWheel, false);
+            // let scale = 1;
+            // modalImage.addEventListener('wheel', (event) => {
+            //     event.preventDefault();
+            //     scale += event.deltaY * -0.01;
+            //     scale = Math.min(Math.max(0.1, scale), 3);
+            //     modalImage.style.transform = `scale(${scale})`;
+            // });
         }
 
         function closeImageModal() {
@@ -127,6 +136,13 @@
             }
         }
 
+        function handleWheel(event) {
+            event.preventDefault();
+            scale += event.deltaY * -0.01;
+            scale = Math.min(Math.max(0.1, scale), 3);
+            modalImg.style.transform = `scale(${scale})`;
+        }
+        
         function handleDragStart(event) {
             startX = event.clientX;
         }
@@ -147,6 +163,8 @@
                 closeImageModal();
             }
         });
+
+        
     </script>
 </head>
 
@@ -465,10 +483,12 @@
             <br /><br />
             <div class="wow fadeInUp section5 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
                 <br />
-                <p class="section5-title section5-main">Date</p>
-                <p class="section5-title section5-sub" style="margin-top: 0;">5월 13일 · 토요일 · 오후 05:30</p>
+                <!-- <p class="section5-title section5-main">Date</p> -->
+                <p class="section5-title section5-month" style="margin-top: 0;">5월</p>
+                
                 <table class="wow fadeInUp section5-title section5-table">
-                    <tr>
+
+                    <tr class="top">
                         <td class="sun">일</td>
                         <td>월</td>
                         <td>화</td>
@@ -478,13 +498,13 @@
                         <td>토</td>
                     </tr>
                     <tr>
-                        <td class="sun"></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
+                        <td class="sun second"></td>
+                        <td class="second">1</td>
+                        <td class="second">2</td>
+                        <td class="second">3</td>
+                        <td class="second">4</td>
+                        <td class="second">5</td>
+                        <td class="second">6</td>
                     </tr>
                     <tr>
                         <td class="sun">7</td>
@@ -523,13 +543,15 @@
                         <td></td>
                     </tr>
                 </table>
-                <p class="wow fadeInUp section5-title section5-sub" style="margin-top:1.3em">글빛 ❤️ 승현 결혼식이 <span
+                <p class="section5-title section5-sub" style="margin-top: 1.3em;">5월 13일 · 토요일 · 오후 05:30</p>
+                <br />
+                <p class="wow fadeInUp section5-title section5-sub2">글빛 ❤️ 승현 결혼식이 <span
                         id="d-day"></span>일 남았습니다.</p>
                 <br /><br />
             </div>
             <div class="wow fadeInUp inner cover-container d-flex w-100 h-100 mx-auto flex-column">
                 <br /><br />
-                <p class="wow fadeInUp section6-title section6-main">Location</p>
+                <p class="wow fadeInUp section6-title section6-main">어디서 하냐면요옹</p>
                 <div class="wow fadeInUp  section6-title">
                     <p class="section6-location-main" style="margin-bottom: 0;">더 그랜드 힐 컨벤션 2층 사브리나홀</p>
                     <p class="section6-location-sub" style="text-align: center;">

@@ -374,12 +374,26 @@ body {
   font-size: 1.3rem;
 }
 
+.section5-sub2 {
+  font-family: NanumMyeongjo-r;
+  line-height: 1.5em;
+  font-size: 1.1rem;
+}
+
+.section5-month {
+  font-family: NanumMyeongjo-r;
+  line-height: 1.5em;
+  font-size: 2rem;
+}
+
+
+
 .section5-table {
   font-family: NanumMyeongjo-r;
   line-height: 1.5em;
   font-size: 1.3rem;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  /* border-top: 1px solid #ccc; */
+  /* border-bottom: 1px solid #ccc; */
 }
 
 .section5-table tr td{
@@ -391,6 +405,11 @@ body {
   color: red;
 }
 
+.section5-table .top{
+  border-bottom: 1px solid #ccc;
+}
+
+
 .section5-table tr .check{
   color: white;
   background-color: chocolate;
@@ -398,11 +417,17 @@ body {
 }
 
 .section5-table tr:first-child td{
-  padding-top: 2em;
+  padding-top: 0.5em;
+  /* padding-bottom: 1.1em; */
+}
+
+.section5-table tr .second{
+  padding-top: 1.6em;
+
 }
 
 .section5-table tr:last-child td{
-  padding-bottom: 2em;
+  padding-bottom: 3em;
 }
 
 .section6-title {
