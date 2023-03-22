@@ -14,9 +14,27 @@
   font-family: 'NanumMyeongjo-b';
   src: url('../font/NanumMyeongjo-Bold.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'NanumBarunGothic-r';
+  src: url('../font/NanumBarunGothic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NanumBarunGothic-b';
+  src: url('../font/NanumBarunGothicBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NanumBarunGothic-l';
+  src: url('../font/NanumBarunGothicLight.ttf') format('truetype');
+}
+
 @font-face {
   font-family: 'DancingScript-b';
   src: url('../font/DancingScript-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NanumSonGeulSsi';
+  src: url('../font/NanumSonGeulSsi.ttf') format('truetype');
 }
 
 /* Links */
@@ -405,19 +423,19 @@ body {
 }
 
 .section6-location-main {
-  font-family: NanumMyeongjo-e;
+  font-family: NanumBarunGothic-r;
   line-height: 1.5em;
   font-size: 1.3rem;
 }
 
 .section6-sub {
-  font-family: NanumMyeongjo-r;
+  font-family: NanumBarunGothic-r;
   line-height: 1.5em;
   font-size: 1.3rem;
 }
 
 .section6-location-sub {
-  font-family: NanumMyeongjo-r;
+  font-family: NanumBarunGothic-r;
   line-height: 1.5em;
   font-size: 1.2rem;
   text-align: left;
