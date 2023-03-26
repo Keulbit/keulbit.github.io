@@ -102,6 +102,54 @@
                 scale = Math.min(Math.max(1, scale), 3);
                 modalImage.style.transform = `scale(${scale})`;
             });
+            
+            // let scale = 1;
+            // let lastTouchDistance = 0;
+            // let lastTouchX = 0;
+            // let lastTouchY = 0;
+            // let translateX = 0;
+            // let translateY = 0;
+            // let imageWidth = modalImage.offsetWidth;
+            // let imageHeight = modalImage.offsetHeight;
+            // let containerWidth = modal.offsetWidth;
+            // let containerHeight = modal.offsetHeight;
+            // modalImage.addEventListener('touchmove', (event) => {
+            // event.preventDefault();
+            // if (event.touches.length === 2) {
+            //     let currentTouchDistance = Math.hypot(
+            //     event.touches[0].pageX - event.touches[1].pageX,
+            //     event.touches[0].pageY - event.touches[1].pageY
+            //     );
+            //     if (lastTouchDistance !== 0) {
+            //         scale += (currentTouchDistance - lastTouchDistance) * 0.01;
+            //         scale = Math.min(Math.max(1, scale), 3);
+            //         modalImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+            //     }
+            //     lastTouchDistance = currentTouchDistance;
+            // } else if (event.touches.length === 1) {
+            //     let touchX = event.touches[0].pageX;
+            //     let touchY = event.touches[0].pageY;
+            //     if (lastTouchX !== 0 && lastTouchY !== 0) {
+            //         translateX += touchX - lastTouchX;
+            //         translateY += touchY - lastTouchY;
+            //         let maxX = (imageWidth * scale - containerWidth) / 2;
+            //         let maxY = (imageHeight * scale - containerHeight) / 2;
+            //         translateX = Math.max(-maxX, Math.min(maxX, translateX));
+            //         translateY = Math.max(-maxY, Math.min(maxY, translateY));
+            //         modalImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+            //     }
+            //     lastTouchX = touchX;
+            //     lastTouchY = touchY;
+            // }
+            // });
+
+            // modalImage.addEventListener('touchend', () => {
+            //     lastTouchDistance = 0;
+            //     lastTouchX = 0;
+            //     lastTouchY = 0;
+            //     let translateX = 0;
+            //     let translateY = 0;
+            // });
         }
 
         function closeImageModal() {
@@ -143,20 +191,20 @@
             modalImg.style.transform = `scale(${scale})`;
         }
         
-        function handleDragStart(event) {
-            startX = event.clientX;
-        }
+        // function handleDragStart(event) {
+        //     startX = event.clientX;
+        // }
 
-        function handleDragEnd(event) {
-            const diffX = event.clientX - startX;
-            if (Math.abs(diffX) > 50) {
-                if (diffX > 0) {
-                    changeImage(-1);
-                } else {
-                    changeImage(1);
-                }
-            }
-        }
+        // function handleDragEnd(event) {
+        //     const diffX = event.clientX - startX;
+        //     if (Math.abs(diffX) > 50) {
+        //         if (diffX > 0) {
+        //             changeImage(-1);
+        //         } else {
+        //             changeImage(1);
+        //         }
+        //     }
+        // }
 
         window.addEventListener("keyup", (event) => {
             if (event.key === "Escape") {
