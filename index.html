@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi">
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes,target-densitydpi=medium-dpi">
     <meta name="description" content="김글빛 ❤️ 유승현 결혼식에 초대합니다.">
     <meta name="author" content="keulbit seunghyun">
     <meta name="generator" content="Jekyll v4.1.1">
@@ -95,13 +95,13 @@
             modalImage.addEventListener("touchstart", handleTouchStart, false);
             modalImage.addEventListener("touchend", handleTouchEnd, false);
             // modalImage.addEventListener("wheel", handleWheel, false);
-            // let scale = 1;
-            // modalImage.addEventListener('wheel', (event) => {
-            //     event.preventDefault();
-            //     scale += event.deltaY * -0.01;
-            //     scale = Math.min(Math.max(0.1, scale), 3);
-            //     modalImage.style.transform = `scale(${scale})`;
-            // });
+            let scale = 1;
+            modalImage.addEventListener('wheel', (event) => {
+                event.preventDefault();
+                scale += event.deltaY * -0.01;
+                scale = Math.min(Math.max(1, scale), 3);
+                modalImage.style.transform = `scale(${scale})`;
+            });
         }
 
         function closeImageModal() {
@@ -163,8 +163,6 @@
                 closeImageModal();
             }
         });
-
-        
     </script>
 </head>
 

@@ -631,16 +631,22 @@ body {
 } */
 
 .image-modal-content {
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   max-width: 90%;
   max-height: 90%;
   max-width: 90%;
   object-fit: cover;
+  /* margin:auto; */
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
 }
 
+.image-modal-content:hover {
+  transform: scale(1.1);
+}
 
 /* .modal-image {
   max-width: 100%;
