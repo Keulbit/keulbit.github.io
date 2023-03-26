@@ -642,6 +642,7 @@ body {
   /* margin:auto; */
   transform: scale(1);
   transition: transform 0.2s ease-in-out;
+  cursor: move;
 }
 
 .image-modal-content:hover {

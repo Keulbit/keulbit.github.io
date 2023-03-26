@@ -102,25 +102,43 @@
                 scale = Math.min(Math.max(1, scale), 3);
                 modalImage.style.transform = `scale(${scale})`;
             });
+            
+            // let scale = 1;
             let lastTouchDistance = 0;
+            let lastTouchX = 0;
+            let lastTouchY = 0;
+            let translateX = 0;
+            let translateY = 0;
             modalImage.addEventListener('touchmove', (event) => {
-                event.preventDefault();
-                if (event.touches.length === 2) {
-                    let currentTouchDistance = Math.hypot(
-                    event.touches[0].pageX - event.touches[1].pageX,
-                    event.touches[0].pageY - event.touches[1].pageY
-                    );
-                    if (lastTouchDistance !== 0) {
+            event.preventDefault();
+            if (event.touches.length === 2) {
+                let currentTouchDistance = Math.hypot(
+                event.touches[0].pageX - event.touches[1].pageX,
+                event.touches[0].pageY - event.touches[1].pageY
+                );
+                if (lastTouchDistance !== 0) {
                     scale += (currentTouchDistance - lastTouchDistance) * 0.01;
                     scale = Math.min(Math.max(1, scale), 3);
-                    modalImage.style.transform = `scale(${scale})`;
-                    }
-                    lastTouchDistance = currentTouchDistance;
+                    modalImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
                 }
+                lastTouchDistance = currentTouchDistance;
+            } else if (event.touches.length === 1) {
+                let touchX = event.touches[0].pageX;
+                let touchY = event.touches[0].pageY;
+                if (lastTouchX !== 0 && lastTouchY !== 0) {
+                    translateX += touchX - lastTouchX;
+                    translateY += touchY - lastTouchY;
+                    modalImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+                }
+                lastTouchX = touchX;
+                lastTouchY = touchY;
+            }
             });
 
             modalImage.addEventListener('touchend', () => {
             lastTouchDistance = 0;
+            lastTouchX = 0;
+            lastTouchY = 0;
             });
         }
 
