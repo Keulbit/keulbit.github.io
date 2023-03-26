@@ -412,7 +412,7 @@ body {
 
 .section5-table tr .check{
   color: white;
-  background-color: chocolate;
+  background-color: #6765dd;
   border-radius: 50px;
 }
 
@@ -442,25 +442,25 @@ body {
 }
 
 .section6-main {
-  font-family: DancingScript-b;
+  font-family: NanumMyeongjo-b;
   line-height: 1.5em;
   font-size: 2rem;
 }
 
 .section6-location-main {
-  font-family: NanumBarunGothic-r;
+  font-family: NanumMyeongjo-b;
   line-height: 1.5em;
   font-size: 1.3rem;
 }
 
 .section6-sub {
-  font-family: NanumBarunGothic-r;
+  font-family: NanumMyeongjo-b;
   line-height: 1.5em;
   font-size: 1.3rem;
 }
 
 .section6-location-sub {
-  font-family: NanumBarunGothic-r;
+  font-family: NanumMyeongjo-r;
   line-height: 1.5em;
   font-size: 1.2rem;
   text-align: left;
@@ -497,7 +497,7 @@ body {
 .section7-button {
   font-family: NanumMyeongjo-b;
   font-size: 1.2rem;
-  background-color: #CC9999;
+  background-color: #848cd3;
   color: #fff;
   border: 0;
   border-radius: 50px;
@@ -507,19 +507,19 @@ body {
 }
 
 .section7-button:hover {
-  background-color: #CC9999;
+  background-color: #6765dd;
   color: #fff;
   border: 0;
 }
 
 .section7-button:active {
-  background-color: #996666;
+  background-color: #6765dd;
   color: #fff;
   border: 0;
 }
 
 .section7-button:valid {
-  background-color: #CC9999;
+  background-color: #6765dd;
   color: #fff;
   border: 0;
 }
