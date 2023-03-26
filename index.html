@@ -102,6 +102,26 @@
                 scale = Math.min(Math.max(1, scale), 3);
                 modalImage.style.transform = `scale(${scale})`;
             });
+            let lastTouchDistance = 0;
+            modalImage.addEventListener('touchmove', (event) => {
+            event.preventDefault();
+            if (event.touches.length === 2) {
+                let currentTouchDistance = Math.hypot(
+                event.touches[0].pageX - event.touches[1].pageX,
+                event.touches[0].pageY - event.touches[1].pageY
+                );
+                if (lastTouchDistance !== 0) {
+                scale += (currentTouchDistance - lastTouchDistance) * 0.01;
+                scale = Math.min(Math.max(1, scale), 3);
+                modalImage.style.transform = `scale(${scale})`;
+                }
+                lastTouchDistance = currentTouchDistance;
+            }
+            });
+
+            modalImage.addEventListener('touchend', () => {
+            lastTouchDistance = 0;
+            });
         }
 
         function closeImageModal() {
