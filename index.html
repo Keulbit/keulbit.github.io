@@ -109,6 +109,10 @@
             let lastTouchY = 0;
             let translateX = 0;
             let translateY = 0;
+            let imageWidth = modalImage.offsetWidth;
+            let imageHeight = modalImage.offsetHeight;
+            let containerWidth = modal.offsetWidth;
+            let containerHeight = modal.offsetHeight;
             modalImage.addEventListener('touchmove', (event) => {
             event.preventDefault();
             if (event.touches.length === 2) {
@@ -128,6 +132,10 @@
                 if (lastTouchX !== 0 && lastTouchY !== 0) {
                     translateX += touchX - lastTouchX;
                     translateY += touchY - lastTouchY;
+                    let maxX = (imageWidth * scale - containerWidth) / 2;
+                    let maxY = (imageHeight * scale - containerHeight) / 2;
+                    translateX = Math.max(-maxX, Math.min(maxX, translateX));
+                    translateY = Math.max(-maxY, Math.min(maxY, translateY));
                     modalImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
                 }
                 lastTouchX = touchX;
@@ -136,9 +144,9 @@
             });
 
             modalImage.addEventListener('touchend', () => {
-            lastTouchDistance = 0;
-            lastTouchX = 0;
-            lastTouchY = 0;
+                lastTouchDistance = 0;
+                lastTouchX = 0;
+                lastTouchY = 0;
             });
         }
 
