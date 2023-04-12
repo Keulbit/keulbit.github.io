@@ -102,7 +102,7 @@
                 scale = Math.min(Math.max(1, scale), 3);
                 modalImage.style.transform = `scale(${scale})`;
             });
-            
+
             // let scale = 1;
             // let lastTouchDistance = 0;
             // let lastTouchX = 0;
@@ -190,7 +190,7 @@
             scale = Math.min(Math.max(0.1, scale), 3);
             modalImg.style.transform = `scale(${scale})`;
         }
-        
+
         // function handleDragStart(event) {
         //     startX = event.clientX;
         // }
@@ -277,7 +277,7 @@
                 </p>
                 <br />
             </div> -->
-            
+
             <hr class="cover-container" />
             <br />
             <p
@@ -296,7 +296,7 @@
                 김글빛 · 유승현 올림
             </p> -->
             <br /><br /><br />
-            
+
             <div class="wow fadeInUp">
                 <p class="section1-title section1-sub">
                     서로 마주보며 다져온 사랑을<br />
@@ -521,6 +521,7 @@
                                 </button>
                             </div>
                             <div class="modal-body section7-modal section7-modal-content">
+                                유환국 : 우리 1002-353-622896<br>
                                 유승현 : 하나 148-910149-95907
                             </div>
                             <div class="modal-footer">
@@ -541,7 +542,7 @@
                 <br />
                 <!-- <p class="section5-title section5-main">Date</p> -->
                 <p class="section5-title section5-month" style="margin-top: 0;">5월</p>
-                
+
                 <table class="wow fadeInUp section5-title section5-table">
 
                     <tr class="top">
@@ -601,8 +602,7 @@
                 </table>
                 <p class="section5-title section5-sub" style="margin-top: 1.3em;">5월 13일 · 토요일 · 오후 05:30</p>
                 <br />
-                <p class="wow fadeInUp section5-title section5-sub2">글빛 ❤️ 승현 결혼식이 <span
-                        id="d-day"></span>일 남았습니다.</p>
+                <p class="wow fadeInUp section5-title section5-sub2">글빛 ❤️ 승현 결혼식이 <span id="d-day"></span>일 남았습니다.</p>
                 <br /><br />
             </div>
             <div class="wow fadeInUp inner cover-container d-flex w-100 h-100 mx-auto flex-column">
@@ -629,10 +629,12 @@
                     var map = new kakao.maps.Map(mapContainer, mapOption);
                     var markerPosition = new kakao.maps.LatLng(37.50606634634368, 127.0667056516021);
 
-                    var imageSrc = "https://keulbit.github.io/img/location.png",    
+                    var imageSrc = "https://keulbit.github.io/img/location.png",
                         imageSize = new kakao.maps.Size(180, 180), // 마커이미지의 크기입니다
-                        imageOption = {offset: new kakao.maps.Point(85, 180)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-                        
+                        imageOption = {
+                            offset: new kakao.maps.Point(85, 180)
+                        }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
                     // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
                     var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
 
@@ -647,35 +649,33 @@
                         '</div>';
 
                     // 커스텀 오버레이가 표시될 위치입니다 
-                    var position = new kakao.maps.LatLng(37.50839293345903, 127.0644835629063);  
+                    var position = new kakao.maps.LatLng(37.50839293345903, 127.0644835629063);
 
                     // 커스텀 오버레이를 생성합니다
                     var customOverlay = new kakao.maps.CustomOverlay({
                         map: map,
                         position: position,
                         content: content,
-                        yAnchor: 1 
+                        yAnchor: 1
                     });
 
                     // 마커가 지도 위에 표시되도록 설정합니다
                     marker.setMap(map);
 
-                                        // 지도에 표시할 원을 생성합니다
+                    // 지도에 표시할 원을 생성합니다
                     var circle = new kakao.maps.Circle({
-                        center : new kakao.maps.LatLng(37.509075449315785, 127.06446754012431),  // 원의 중심좌표 입니다 
+                        center: new kakao.maps.LatLng(37.509075449315785, 127.06446754012431), // 원의 중심좌표 입니다 
                         radius: 15, // 미터 단위의 원의 반지름입니다 
                         strokeWeight: 1, // 선의 두께입니다 
                         strokeColor: '#f00b0b', // 선의 색깔입니다
                         strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
                         strokeStyle: 'line', // 선의 스타일 입니다
                         fillColor: '#f00b0b', // 채우기 색깔입니다
-                        fillOpacity: 0.4  // 채우기 불투명도 입니다   
-                    }); 
+                        fillOpacity: 0.4 // 채우기 불투명도 입니다   
+                    });
 
                     // 지도에 원을 표시합니다 
-                    circle.setMap(map); 
-
-
+                    circle.setMap(map);
                 </script>
                 <div class="wow fadeInUp section6-location p-3">
                     <div class="accordion" id="accordionExample">
