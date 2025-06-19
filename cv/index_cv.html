@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keulbit Kim | AI Research Scientist</title>
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* CSS styles for layout, theme, and language toggle */
+        :root {
+            --primary-color: #2c3e50; /* 진한 남색 */
+            --secondary-color: #3498db; /* 밝은 파란색 */
+            --light-gray: #f4f4f4;
+            --medium-gray: #ccc;
+            --dark-gray: #555;
+            --background-color: #ffffff;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-gray);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: var(--background-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+        }
+        
+        /* --- Language Toggle Button --- */
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #lang-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        #lang-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* --- Header --- */
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        header h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.95em;
+            color: var(--dark-gray);
+        }
+
+        .contact-info span { display: inline-flex; align-items: center; }
+        .contact-info i { margin-right: 8px; color: var(--secondary-color); }
+        .contact-info a { color: var(--dark-gray); text-decoration: none; transition: color 0.3s; }
+        .contact-info a:hover { color: var(--secondary-color); }
+
+        /* --- Main Content --- */
+        main section { margin-bottom: 40px; }
+        h3 { font-size: 1.8em; color: var(--primary-color); border-bottom: 3px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 25px; }
+        h3 i { margin-right: 12px; }
+        ul, ol { padding-left: 20px; }
+        ul li, ol li { margin-bottom: 10px; }
+
+        /* --- Language Switching Logic (CSS) --- */
+        .en { display: none; } /* Hide English by default */
+        .ko { display: inline; } /* Show Korean by default */
+        body.lang-en .ko { display: none; } /* Hide Korean when English is active */
+        body.lang-en .en { display: inline; } /* Show English when active. Use 'inline', 'block', or 'list-item' as appropriate */
+        
+        /* Specific display types for language switching */
+        body.lang-en .en-block { display: block; }
+        body.lang-en .en-list-item { display: list-item; }
+
+        /* --- Timeline (Experience & Education) --- */
+        .timeline { position: relative; padding-left: 30px; border-left: 4px solid var(--secondary-color); }
+        .timeline-item { position: relative; margin-bottom: 30px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: -38px; top: 5px; width: 20px; height: 20px; background: var(--background-color); border: 4px solid var(--secondary-color); border-radius: 50%; }
+        .timeline-date { font-weight: 500; color: var(--secondary-color); margin-bottom: 5px; font-size: 0.9em; }
+        .timeline-content h4 { font-size: 1.2em; margin: 0 0 5px 0; }
+        .timeline-content strong { font-weight: 500; color: var(--dark-gray); }
+        .timeline-content ul { margin-top: 10px; padding-left: 20px; }
+        .timeline-content p { margin: 5px 0 0; }
+        
+        /* --- Project Cards --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .project-card { background: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; transition: transform 0.3s, box-shadow 0.3s; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .project-card h4 { font-size: 1.2em; color: var(--secondary-color); margin-top: 0; }
+        .project-meta { font-size: 0.9em; color: var(--dark-gray); margin-bottom: 10px; border-bottom: 1px solid var(--light-gray); padding-bottom: 10px; }
+        .project-card ul { font-size: 0.95em; padding-left: 20px; }
+        .project-card p strong { font-weight: 700; }
+
+        /* --- Skills --- */
+        .skill-category { margin-bottom: 15px; }
+        .skill-category strong { display: inline-block; width: 120px; font-weight: 500; }
+        .skill-category span { display: inline-block; background-color: var(--light-gray); color: var(--dark-gray); padding: 5px 12px; margin: 5px 2px; border-radius: 5px; font-size: 0.9em; }
+
+        /* --- Publications & Patents --- */
+        #publications ol, #patents ul { padding-left: 25px; }
+        #publications li, #patents li { margin-bottom: 15px; line-height: 1.5; }
+        
+        /* --- Footer --- */
+        footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--medium-gray); font-size: 0.9em; color: var(--dark-gray); }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 20px; }
+            .lang-toggle { top: 10px; right: 10px; }
+            header h1 { font-size: 2em; }
+            .contact-info { flex-direction: column; gap: 10px; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
+          @media (max-width: 480px) {
+            .timeline { padding-left: 20px; }
+            .timeline-dot { left: -30px; }
+        }
+    </style>
+</head>
+<body class="lang-en"> <!-- Added lang-en class here -->
+    <div class="container">
+        <div class="lang-toggle">
+            <button id="lang-btn">한국어</button> <!-- Changed initial text to 한국어 -->
+        </div>
+
+        <header>
+            <h1><span class="ko">김글빛 (Keulbit Kim)</span><span class="en">KEULBIT KIM</span></h1>
+            <h2>AI Research Scientist</h2>
+            <div class="contact-info">
+                <span><i class="fa-solid fa-phone"></i> +82-10-7550-5357</span>
+                <span><i class="fa-solid fa-location-dot"></i> South Korea</span>
+                <span><i class="fa-solid fa-envelope"></i> <a href="mailto:rmfqlc219@gmail.com">rmfqlc219@gmail.com</a></span>
+                <span><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/keulbit/" target="_blank">linkedin.com/in/keulbit</a></span>
+            </div>
+        </header>
+
+        <main>
+            <section id="interests">
+                <h3><i class="fa-solid fa-heart"></i> <span class="ko">관심 분야</span><span class="en">Interests</span></h3>
+                <ul>
+                    <li><span class="ko">음성 신호 처리 (Speech Enhancement, Separation, Keyword Spotting)</span><span class="en en-list-item">Speech signal processing (enhancement, separation, keyword spotting)</span></li>
+                    <li><span class="ko">멀티모달 뉴럴 네트워크 (Emotion Recognition)</span><span class="en en-list-item">Multi-modal neural network (emotion recognition)</span></li>
+                    <li><span class="ko">오디오 생성 및 검색 (Audio Generation, Retrieval)</span><span class="en en-list-item">Audio generation, retrieval</span></li>
+                </ul>
+            </section>
+
+            <section id="experience">
+                <h3><i class="fa-solid fa-briefcase"></i> <span class="ko">경력</span><span class="en">Experience</span></h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022.08 - present</div>
+                        <div class="timeline-content">
+                            <h4>NCSOFT</h4>
+                            <strong>Speech AI Research Scientist</strong>
+                            <ul>
+                                <li>Audio Generation/Captioning/Retrieval</li>
+                                <li>Text-speech Emotion Recognition</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2020.03 - 2022.07</div>
+                        <div class="timeline-content">
+                            <h4>ACRYL</h4>
+                            <strong>Researcher Engineer</strong>
+                            <ul>
+                                <li>Machine/Deep Learning</li>
+                                <li>Multi-modal Emotion Recognition</li>
+                                <li>AI Model Development & MLOps Integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="projects">
+                <h3><i class="fa-solid fa-lightbulb"></i> <span class="ko">프로젝트</span><span class="en">Projects</span></h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4><span class="ko">특수음향(SFX) 생성 및 검색 기술 개발</span><span class="en">Special effects (SFX) sound generation and retrieval</span></h4>
+                        <p class="project-meta">NCSOFT | 2023.12 - present</p>
+                        <p><strong><span class="ko">역할:</span><span class="en">Role:</span></strong> Scientific research and development</p>
+                        <ul>
+                            <li><span class="ko">특수음향에 적합한 오디오 생성 모델 개발</span><span class="en en-list-item">Develope the audio generation model to better suit SFX sounds.</span></li>
+                            <li><span class="ko">특수음향 검색 효율성 개선을 위한 오디오 임베딩 모델 최적화</span><span class="en en-list-item">Optimize audio embedding model to improve search efficiency for SFX sounds.</span></li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <h4><span class="ko">실시간 텍스트-음성 감정 인식</span><span class="en">Real time text-speech emotion recognition</span></h4>
+                        <p class="project-meta">NCSOFT | 2022.08 - 2023.12</p>
+                        <p><strong><span class="ko">역할:</span><span class="en">Role:</span></strong> Scientific research and development</p>
+                        <ul>
+                            <li><span class="ko">디지털 휴먼 프로젝트를 위한 한국어 텍스트-음성 감정 인식 모델 설계 및 서비스 연동을 위한 모델 도커라이제이션 구현</span><span class="en en-list-item">Designed a Korean text-to-speech emotion recognition model for a digital human project and implemented model dockerization for integration.</span></li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <h4><span class="ko">청각장애인을 위한 고품질 자막방송 기술 개발</span><span class="en">Development of advanced subtitling techniques for hard of hearing</span></h4>
+                        <p class="project-meta">ACRYL (w. ETRI, KBS) | 2020.08 - 2021.03</p>
+                        <p><strong>Keywords:</strong> Lip Reading, Speaker Identification, Multi-modal Emotion Recognition</p>
+                        <ul>
+                            <li><span class="ko">얼굴 인식 및 입술 읽기 모델을 활용한 화자 식별 기능 구현</span><span class="en en-list-item">Implement speaker identification with facial recognition and lip-reading model</span></li>
+                            <li><span class="ko">영상(얼굴), 자막, 음성을 이용해 감정이 담긴 자막을 생성하는 영상-텍스트-음성 감정 인식 모델 개발</span><span class="en en-list-item">Developed a video-text-speech emotion recognition using cropped faces, subtitles, and speech to generate emotion-infused subtitles.</span></li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <h4><span class="ko">멀티모달 감정 인식 모델 개발</span><span class="en">Development multi-modal emotion recognition model</span></h4>
+                        <p class="project-meta">ACRYL | 2020.03 - 2022.07</p>
+                        <p><strong><span class="ko">역할:</span><span class="en">Role:</span></strong> Researcher Engineer and development</p>
+                        <ul>
+                            <li><span class="ko">7개의 단일 레이블을 예측하는 모델을 34개의 다중 레이블 예측으로 확장</span><span class="en en-list-item">Expanded the model from predicting 7 single labels to predicting 34 multi-labels.</span></li>
+                            <li><span class="ko">새롭게 수집된 데이터에 대한 모델 성능 유지를 위한 증분 학습 구현</span><span class="en en-list-item">Implement incremental learning to maintain model performance with newly collected data.</span></li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <h4><span class="ko">임베디드 시스템을 위한 딥러닝 기반 사용자 적응형 자기 진화 음성 향상 시스템</span><span class="en">Deep learning-based user-adaptive and self-evolving speech enhancement system for embedded systems</span></h4>
+                        <p class="project-meta">Yonsei Univ. (w. National Research Foundation) | 2018.06 - 2019.05</p>
+                        <p><strong>Keywords:</strong> Speech Enhancement, Speaker-adaptive, NMF, Binary Neural Network</p>
+                        <ul>
+                            <li><span class="ko"><strong>기여:</strong> 딥러닝을 이용한 NMF 기반 화자 적응형 음성 향상 모델 및 저자원 환경을 위한 이진 신경망 기반 음성 향상 기술 구현</span><span class="en en-list-item"><strong>Contribution:</strong> implement of NMF-based speaker-adaptive speech enhancement model using deep learning and implement of speech enhancement using binary neural network for low resource environment.</span></li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <h4><span class="ko">타겟 음성/오디오 신호에 대한 일반화된 오프라인 음성 향상 알고리즘</span><span class="en">Generalized off-line enhancement algorithm for targeted speech/audio signals</span></h4>
+                        <p class="project-meta">Yonsei Univ. (w. Google Inc USA) | 2016.11 - 2017.10</p>
+                        <p><strong>Keywords:</strong> speech enhancement, source separation, deep learning, NMF</p>
+                        <ul>
+                            <li><span class="ko"><strong>기여:</strong> 오프라인 적용을 위한 특정 유형의 잡음 제거에 초점을 맞춘 하이브리드 NMF & 딥러닝 기반 음성 향상 알고리즘 개발</span><span class="en en-list-item"><strong>Contribution:</strong> development of hybrid NMF & deep learning-based speech enhancement algorithms focusing on target-type noise removal for off-line applications.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h3><i class="fa-solid fa-code"></i> Skills</h3>
+                <div class="skill-category">
+                    <strong>Languages:</strong>
+                    <span>Python</span><span>MATLAB</span><span>C++</span><span>C</span><span>HTML</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Technologies:</strong>
+                    <span>Pytorch</span><span>Tensorflow</span><span>Git</span><span>Docker</span>
+                </div>
+            </section>
+
+            <section id="education">
+                <h3><i class="fa-solid fa-graduation-cap"></i> <span class="ko">학력</span><span class="en">Education</span></h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2015.03 - 2020.02</div>
+                        <div class="timeline-content">
+                            <h4>Yonsei University</h4>
+                            <p class="ko"><strong>전기전자공학 석박사 통합과정 (박사 수료)</strong></p>
+                            <p class="en en-block"><strong>Combined M.S. and Ph.D., Electrical and Electronic Engineering</strong><br>Ph.D. Candidate (Currently on a leave of absence)</p>
+                            <p><span class="ko">지도교수: 강홍구</span><span class="en">Advisor: Prof. HongGoo -Kang</span></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2011.03 - 2015.02</div>
+                        <div class="timeline-content">
+                            <h4>Hongik University</h4>
+                            <p class="ko"><strong>전자전기공학 학사</strong></p>
+                            <p class="en en-block"><strong>Bachelor of Engineering (B.E.), Electronic and Electrical Engineering</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="publications">
+                <h3><i class="fa-solid fa-book-open"></i> Publications</h3>
+                <ol>
+                    <li>Keulbit Kim, Namhyun Cho, "Focus-attention-enhanced Crossmodal Transformer with Metric Learning for Multimodal Speech Emotion Recognition," INTERSPEECH, 2023.</li>
+                    <li>Keulbit Kim, Jinkyu Lee, Jan Skoglund, and Hong-Goo Kang. "Model Order Selection for Wind Noise Reduction in Non-negative Matrix Factorization, 2019 34th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC). IEEE, 2019.</li>
+                    <li>Haemin Yang, Soyeon Choe, Keulbit Kim, Hong-Goo Kang. "Deep learning-based speech presence probability estimation for noise PSD estimation in single-channel speech enhancement." 2018 International Conference on Signals and Systems (ICSigSys). IEEE, 2018.</li>
+                    <li>Jinkyu Lee, Keulbit Kim, Turaj Shabestary, Hong-Goo Kang. "Deep bi-directional long short-term memory based speech enhancement for wind noise reduction. 2017 Hands-free Speech Communications and Microphone Arrays (HSCMA). IΕΕΕ, 2017.</li>
+                    <li>Keulbit Kim, Jinkyu Lee, Hong-Goo Kang, "Non-negative matrix factorization-based speech enhancement for text-dependent speaker verification." The Acoustical Society of Korea. Spring Conference, 2016.</li>
+                </ol>
+            </section>
+
+            <section id="patents">
+                <h3><i class="fa-solid fa-certificate"></i> Patents</h3>
+                <ul>
+                    <li><span class="ko"><strong>등록:</strong> 음향 신호 향상 방법 - KR10-1943582 (2019.01.23)</span><span class="en en-list-item"><strong>Registered:</strong> KR10-1943582. "Acoustic signal enhancement method" (23/01/2019)</span></li>
+                    <li><span class="ko"><strong>출원:</strong> 각 모달의 중요도에 기반한 멀티모달 인공지능 학습 시스템 및 그 방법 - KR10-2021-0111547 (2021.08.24)</span><span class="en en-list-item"><strong>Applied:</strong> KR10-2021-0111547, "Multimodal artificial intelligence learning system based on importance of each modal and method thereof" (24/08/2021)</span></li>
+                    <li><span class="ko"><strong>출원:</strong> 손실 함수 기반 인공지능 모델 성능 향상 시스템 및 방법 - KR10-2021-0154083 (2021.11.10)</span><span class="en en-list-item"><strong>Applied:</strong> KR10-2021-0154083, "Loss function -based Al(Artificial Intelligence) model performance enhancement system and method" (10/11/2021)</span></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Keulbit Kim. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for Language Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const langBtn = document.getElementById('lang-btn');
+            const body = document.body;
+
+            // 페이지 로드 시 현재 언어 상태를 확인하여 버튼 텍스트 설정
+            if (body.classList.contains('lang-en')) {
+                langBtn.textContent = '한국어';
+            } else {
+                langBtn.textContent = 'English';
+            }
+
+            langBtn.addEventListener('click', () => {
+                // 'lang-en' 클래스를 body에 토글합니다.
+                body.classList.toggle('lang-en');
+
+                // 버튼 텍스트를 현재 언어 상태에 따라 변경합니다.
+                if (body.classList.contains('lang-en')) {
+                    langBtn.textContent = '한국어';
+                } else {
+                    langBtn.textContent = 'English';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
