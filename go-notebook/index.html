@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baduk Review Notebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .goban-bg {
+      background-color: #E2C4A0; /* Slightly lighter wood color for cards if needed */
+    }
+    .stone-shadow {
+      filter: drop-shadow(0.5px 1px 1.5px rgba(0,0,0,0.3)); 
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-50">
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <radialGradient id="blackStoneGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+        <stop offset="0%" style="stop-color:rgb(70,70,70);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(5,5,5);stop-opacity:1" />
+      </radialGradient>
+      <radialGradient id="whiteStoneGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(205,205,205);stop-opacity:1" />
+      </radialGradient>
+    </defs>
+  </svg>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

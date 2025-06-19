@@ -1,0 +1,6 @@
+{
+  "name": "Go Review Notebook",
+  "description": "A web application to store Go (Baduk) game records and take notes, functioning as a digital review notebook. Users can set up board positions, add analytical notes, and manage their game studies.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
